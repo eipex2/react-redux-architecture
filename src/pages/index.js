@@ -1,0 +1,1 @@
+export { default as NotFound } from './NotFound/not_found'
