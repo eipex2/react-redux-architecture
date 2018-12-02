@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[<NotFound /> shd render NotFound page 1`] = `
+<Page
+  className="not_found"
+>
+  <h1>
+    404
+  </h1>
+  <h3>
+    PAGE NOT FOUND
+  </h3>
+</Page>
+`;

@@ -3,6 +3,7 @@ import React from 'react'
 import { Page } from '../../components'
 
 import "./not_found.css"
+
 const NotFound = () => {
     return (
         <Page className="not_found">

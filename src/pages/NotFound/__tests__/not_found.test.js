@@ -7,6 +7,6 @@ describe('[<NotFound />', () => {
     it('shd render NotFound page', () => {
         const wrapper = shallow(<NotFound />)
 
-        expect(wrapper.getElement()).not.toBeNull()
+        expect(wrapper.getElement()).toMatchSnapshot()
     })
 })
