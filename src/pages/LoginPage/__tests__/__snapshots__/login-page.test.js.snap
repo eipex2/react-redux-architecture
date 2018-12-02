@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[<LoginPage />] shd render <LoginForm /> 1`] = `
+<Page
+  className="login_view"
+>
+  <LoginForm />
+</Page>
+`;
+
+exports[`[<LoginPage />] shd render <LoginView /> 1`] = `
+<Page
+  className="login_view"
+>
+  <LoginForm />
+</Page>
+`;
+
+exports[`[<LoginPage />] shd render <LoginView /> and view shd match snapshot 1`] = `
+<Page
+  className="login_view"
+>
+  <LoginForm />
+</Page>
+`;

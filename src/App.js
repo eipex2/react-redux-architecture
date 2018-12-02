@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import { NotFound } from './pages'
+import { NotFound, LoginPage } from './pages'
 
 class App extends Component {
   render() {
@@ -11,11 +10,11 @@ class App extends Component {
       <div className="App">
         <Router>
           <Switch>
-            {/*add routes*/}
+            <Route exact path="/login" component={LoginPage} />
             <Route component={() => <NotFound />} />
           </Switch>
         </Router>
-      </div >
+      </div>
     );
   }
 }

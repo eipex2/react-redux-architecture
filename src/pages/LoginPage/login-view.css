@@ -1,0 +1,7 @@
+.login_view {
+    display:grid;
+    align-items:center;
+    justify-items:center;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+}
