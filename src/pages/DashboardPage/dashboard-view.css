@@ -1,0 +1,7 @@
+.page-view {
+    display:grid;
+    text-align:center;
+    align-items: center;
+    grid-template-rows:1fr;
+    grid-template-columns:1fr;
+}

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import "./login_form.css"
+import "./login-form.css"
 
 class LoginForm extends React.Component {
 
@@ -10,7 +10,8 @@ class LoginForm extends React.Component {
 
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            error: null
         }
     }
 
@@ -18,7 +19,11 @@ class LoginForm extends React.Component {
         e.preventDefault()
         const { email, password } = this.state
 
-        this.props.login(email, password)
+        this.props.login(email, password).catch(() => {
+            this.setState({
+                error: true
+            })
+        })
     }
 
     onChange = e => {
@@ -28,27 +33,32 @@ class LoginForm extends React.Component {
         })
     }
 
+    setHeading = () => {
+        if (this.state.error) {
+            return <h1>Login failed <span role="img" aria-label="cool-emoji">😭</span></h1>
+        }
+        return <h1>Hello <span role="img" aria-label="cool-emoji">😎</span></h1>
+    }
+
     render() {
 
-        const { email, password } = this.state
+        const { email, password, error } = this.state
 
         return (
             <form>
-                <h1>Hello 😎</h1>
+                {this.setHeading()}
                 <input
                     name="email"
                     type="email"
                     placeholder="email"
                     value={email}
                     onChange={this.onChange} />
-
                 <input
                     name="password"
                     type="password"
                     placeholder="password"
                     value={password}
                     onChange={this.onChange} />
-
                 <button type="submit" onClick={this.submit}>LOGIN</button>
             </form>
         )

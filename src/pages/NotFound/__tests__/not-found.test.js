@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import NotFound from '../not_found'
+import NotFound from '../not-found'
 
 describe('[<NotFound />', () => {
 

@@ -2,10 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import "./page.css"
+import { LoginPage } from '../../pages'
 
 const Page = (props) => {
+
+    const { authenticated } = props
+
     return (
-        <div className={`page ${props.className}`}>{props.children}</div>
+        <div className={`page ${props.className}`}>
+            {props.children}
+        </div>
     )
 }
 

@@ -1,8 +1,9 @@
 form {
   padding:10px;
   display:grid;
+  min-width: 300px;
   max-width: 400px;
-  max-height: 250px;
+  max-height:300px;
   border-radius:2px;
   background-color:white;
   grid-template-columns: 1fr;

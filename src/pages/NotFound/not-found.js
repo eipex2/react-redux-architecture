@@ -2,9 +2,10 @@ import React from 'react'
 
 import { Page } from '../../components'
 
-import "./not_found.css"
+import "./not-found.css"
 
-const NotFound = () => {
+const NotFound = (props) => {
+    console.log(props)
     return (
         <Page className="not_found">
             <h1>404</h1>
