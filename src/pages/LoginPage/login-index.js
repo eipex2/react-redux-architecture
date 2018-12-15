@@ -1,3 +1,7 @@
+import { connect } from 'react-redux'
+
 import LoginView from './login-view'
 
-export default LoginView
+import { mapDispatchToProps } from './login-controller'
+
+export default connect(null, mapDispatchToProps)(LoginView)

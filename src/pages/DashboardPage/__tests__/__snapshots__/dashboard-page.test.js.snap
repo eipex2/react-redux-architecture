@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[<DashboardPage> shd render <DashboardView /> and view shd match snapshot 1`] = `
+<Page
+  className="page-view"
+>
+  <div>
+    <h1>
+      Congratulations 
+    </h1>
+    <h3>
+      you are logged in 
+      <span
+        aria-label="smiling-emoji"
+        role="img"
+      >
+        😁
+      </span>
+    </h3>
+  </div>
+</Page>
+`;

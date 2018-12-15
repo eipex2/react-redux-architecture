@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import { NotFound, LoginPage } from './pages'
+
+import { NotFound, LoginPage, DashboardPage } from './pages'
+
+import PrivateRoute from './PrivateRoute/private-route'
 
 class App extends Component {
   render() {
@@ -10,8 +13,9 @@ class App extends Component {
       <div className="App">
         <Router>
           <Switch>
+            <PrivateRoute exact path="/" component={DashboardPage} />
             <Route exact path="/login" component={LoginPage} />
-            <Route component={() => <NotFound />} />
+            <Route component={NotFound} />
           </Switch>
         </Router>
       </div>
