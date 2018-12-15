@@ -1,10 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-//import DashboardView from '../dashboard-view'
-// import DashboardPage from '../dashboard-index'
-
 import DashboardView from '../dashboard-view'
+import DashboardPage from '../dashboard-index'
+
 
 describe('[<DashboardPage>', () => {
 
@@ -30,12 +29,12 @@ describe('[<DashboardPage>', () => {
     it('shd render <DashboardView /> and view shd match snapshot', () => {
         const wrapper = shallow(<DashboardView />)
 
-        expect(wrapper.getElement()).not.toBeNull()
+        expect(wrapper.getElement()).toMatchSnapshot()
     })
 
-    // it('shd have session state', () => {
-    //     const wrapper = shallow(<DashboardPage store={mockStore} />)
+    it('shd have session state', () => {
+        const wrapper = shallow(<DashboardPage store={mockStore} />)
 
-    //     expect(wrapper.prop('user')).toEqual(mockUser)
-    // })
+        expect(wrapper.prop('user')).toEqual(mockUser)
+    })
 })

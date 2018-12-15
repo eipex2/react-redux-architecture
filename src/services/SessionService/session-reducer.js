@@ -5,8 +5,8 @@ const INITIAL_STATE = {
 }
 
 const SessionReducer = (state = INITIAL_STATE, action = {}) => {
-    switch (action.type) {
 
+    switch (action.type) {
         case LOG_IN_USER:
             return Object.assign({}, state, { user: action.data })
         default:

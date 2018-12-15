@@ -16,7 +16,9 @@ class LoginForm extends React.Component {
     }
 
     submit = e => {
+
         e.preventDefault()
+
         const { email, password } = this.state
 
         this.props.login(email, password).catch(() => {
@@ -27,7 +29,9 @@ class LoginForm extends React.Component {
     }
 
     onChange = e => {
+
         const { name, value } = e.target
+
         this.setState({
             [name]: value
         })

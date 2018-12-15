@@ -1,5 +1,19 @@
 import { mockUser } from './__mocks__/data';
 
+//A mock api 
+
+//1. create a function to verify the users email and password
+const validate = function verifyUserInfo(email, password) {
+
+    if (email === mockUser.email &&
+        password === mockUser.password) {
+
+        return true
+    }
+
+    return false
+}
+
 export default {
     /**
      * A mock of our login function that accepts
@@ -8,13 +22,16 @@ export default {
      * @param {string} password 
      */
     loginUser(email, password) {
+
         return new Promise((resolve, reject) => {
+
             setTimeout(() => {
-                if (email === mockUser.email &&
-                    password === mockUser.password) {
+
+                if (validate(email, password)) {
                     resolve(mockUser)
                 }
-                reject(Error('login failed'))
+
+                reject(Error('Login Failed'))
             }, 100)
         })
     }

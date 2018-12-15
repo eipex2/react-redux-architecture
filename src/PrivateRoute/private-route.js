@@ -2,23 +2,30 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Route, Redirect } from 'react-router'
 
-const PrivateRoute = (props) => {
+/**
+ * `PrivateRoute` - any route that requires the user to be authenticated
+ * @param props 
+ */
+const PrivateRoute = props => {
 
-    const { children, user } = props
+    //1. destructure props
+    const { path, user, component: Component } = props
 
+    //2. conditionally render `Component` or `Redirect`
     return (
-        <Route exact path={props.path} render={() => (
-            user ? (
-                children
-            ) : (
-                    <Redirect to="/login" />
-                )
+        <Route exact path={path} render={() => (
+            user ?
+                <Component />
+                :
+                <Redirect to="/login" />
         )} />
     )
 }
 
+//3. map session state to props
 const mapStateToProps = ({ sessionState }) => ({
     ...sessionState
 })
 
+//4. export connected `PrivateRoute` component
 export default connect(mapStateToProps)(PrivateRoute)

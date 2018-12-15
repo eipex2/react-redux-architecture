@@ -4,6 +4,8 @@ exports[`[<LoginPage />] shd render <LoginView /> and view shd match snapshot 1`
 <Page
   className="login_view"
 >
-  <LoginForm />
+  <LoginForm
+    login={[Function]}
+  />
 </Page>
 `;

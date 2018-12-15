@@ -5,6 +5,7 @@ import NotFound from '../not-found'
 describe('[<NotFound />', () => {
 
     it('shd render NotFound page', () => {
+
         const wrapper = shallow(<NotFound />)
 
         expect(wrapper.getElement()).toMatchSnapshot()

@@ -6,20 +6,28 @@ import LoginPage from '../login-index'
 
 describe('[<LoginPage />]', () => {
 
+    //1. create a mock store
     const mockStore = {
         getState: jest.fn(),
-        subscribe: {}
+        subscribe: jest.fn(),
+        dispatch: jest.fn()
     }
 
     it('shd render <LoginView /> and view shd match snapshot', () => {
+
+        //2. render the `LoginView`
         const wrapper = shallow(<LoginView />)
 
+        //3. `LoginView` should match snapshot
         expect(wrapper.getElement()).toMatchSnapshot()
     })
 
-    it('shd have default props <LoginView />', () => {
+    it('shd have default props <LoginPage />', () => {
+
+        //4. render the `LoginPage`
         const wrapper = shallow(<LoginPage store={mockStore} />)
 
-        expect(wrapper.prop('login')).toBeInstanceOf(Function)
+        //5. `LoginPage` should have the loginUser function
+        expect(wrapper.prop('loginUser')).toBeInstanceOf(Function)
     })
 })
