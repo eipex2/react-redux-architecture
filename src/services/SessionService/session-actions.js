@@ -1,15 +1,14 @@
-import API from './session-api'
+//First, we create an action type 
+const LOG_IN_USER = "LOG_IN_USER"
 
-//1. create an action type 
-export const LOG_IN_USER = "LOG_IN_USER"
-
-//2. create an action to set the user
-export const setUser = data => ({
+//Then, we create an action to set the user
+const setUser = data => ({
     type: LOG_IN_USER,
     data
 })
 
-//3. export action
+//Finally, we export our action
 export default {
-    setUser
+    setUser,
+    LOG_IN_USER
 }

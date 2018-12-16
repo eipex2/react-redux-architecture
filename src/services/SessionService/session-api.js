@@ -1,8 +1,9 @@
 import { mockUser } from './__mocks__/data';
 
-//A mock api 
+//MOCK API
 
-//1. create a function to verify the users email and password
+//First, we create a function to verify the user's information.
+//This will be replaced by a call to your backend in a real application
 const validate = function verifyUserInfo(email, password) {
 
     if (email === mockUser.email &&
@@ -14,25 +15,27 @@ const validate = function verifyUserInfo(email, password) {
     return false
 }
 
+//Next, we create our mock loginUser function that returns a promise
+//and resolves to our mock user if the email and password are correct
+// email: foo@bar.com
+// password: 1234
+//and rejects with the error `Login Failed` otherwise
+function loginUser(email, password) {
+
+    return new Promise((resolve, reject) => {
+
+        setTimeout(() => {
+
+            if (validate(email, password)) {
+                resolve(mockUser)
+            }
+
+            reject(Error('Login Failed'))
+        }, 100)
+    })
+}
+
+//Finaly, we export our login user function
 export default {
-    /**
-     * A mock of our login function that accepts
-     * an email and password and returns a user.
-     * @param {string} email 
-     * @param {string} password 
-     */
-    loginUser(email, password) {
-
-        return new Promise((resolve, reject) => {
-
-            setTimeout(() => {
-
-                if (validate(email, password)) {
-                    resolve(mockUser)
-                }
-
-                reject(Error('Login Failed'))
-            }, 100)
-        })
-    }
+    loginUser
 }
