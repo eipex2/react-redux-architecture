@@ -1,28 +1,28 @@
 import Session from '../session-index'
-import { setUser } from '../session-actions'
-
 import { mockUser } from '../__mocks__/data'
 
-describe('[SessionService]', () => {
+describe('[SessionReducer]', () => {
 
-    describe('[SessionReducer]', () => {
+    it('shd return the initial state', () => {
 
-        it('shd return the default state', () => {
+        const { Reducer } = Session
 
-            //1. get the initial state
-            const initialState = Session.Reducer()
+        //First, we get the initial state of the reducer
+        const initialState = Reducer()
 
-            //2. validate the initial state
-            expect(initialState).toEqual({ user: null })
-        })
+        //Then, we validate the initial state
+        expect(initialState).toEqual({ user: null })
+    })
 
-        it('shd return logged in state when login action is dispatched', () => {
+    it('shd return the loggedInState when setUser action is dispatched', () => {
 
-            //1. call the reducer with the setUser action
-            const loggedInState = Session.Reducer(undefined, setUser(mockUser))
+        const { Actions: { setUser }, Reducer } = Session
 
-            //2. validate the logged in state
-            expect(loggedInState).toEqual({ user: mockUser })
-        })
+        //We call the setUser user action 
+        //by parsing it as a param to our Reducer
+        const loggedInState = Reducer(undefined, setUser(mockUser))
+
+        //Then, we validate the logged in state
+        expect(loggedInState).toEqual({ user: mockUser })
     })
 })

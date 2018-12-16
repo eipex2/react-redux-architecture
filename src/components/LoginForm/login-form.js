@@ -28,6 +28,17 @@ class LoginForm extends React.Component {
         })
     }
 
+    loginBtnState = () => {
+        if (this.state.error) {
+            return {
+                title: "Login FAILED, Try Again!"
+            }
+        }
+        return {
+            title: "LOGIN"
+        }
+    }
+
     onChange = e => {
 
         const { name, value } = e.target
@@ -39,14 +50,15 @@ class LoginForm extends React.Component {
 
     setHeading = () => {
         if (this.state.error) {
-            return <h1>Login failed <span role="img" aria-label="cool-emoji">😭</span></h1>
+            return <span className="emoji" role="img" aria-label="cool-emoji">😭</span>
         }
-        return <h1>Hello <span role="img" aria-label="cool-emoji">😎</span></h1>
+        return <span className="emoji" role="img" aria-label="cool-emoji">😎</span>
     }
 
     render() {
 
-        const { email, password, error } = this.state
+        const { email, password } = this.state
+        const { title: loginBtnTitle } = this.loginBtnState()
 
         return (
             <form>
@@ -63,7 +75,7 @@ class LoginForm extends React.Component {
                     placeholder="password"
                     value={password}
                     onChange={this.onChange} />
-                <button type="submit" onClick={this.submit}>LOGIN</button>
+                <button type="submit" onClick={this.submit}>{loginBtnTitle}</button>
             </form>
         )
     }

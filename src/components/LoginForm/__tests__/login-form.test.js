@@ -4,7 +4,6 @@ import { shallow } from 'enzyme'
 import LoginForm from '../login-form'
 
 describe('[<LoginForm/>]', () => {
-    var wrapper;
 
     const mockLoginSuccess = jest.fn(() => {
         return new Promise((resolve) => resolve('success'))
@@ -24,7 +23,7 @@ describe('[<LoginForm/>]', () => {
         const email = 'test@example.com'
         const password = '1234'
 
-        wrapper = shallow(<LoginForm login={mockLoginSuccess} />)
+        const wrapper = shallow(<LoginForm login={mockLoginSuccess} />)
 
         //set email
         wrapper.find('[type="email"]').simulate('change', {
@@ -50,11 +49,12 @@ describe('[<LoginForm/>]', () => {
 
     it('shd show login error if login fails', async () => {
 
-        wrapper = shallow(<LoginForm login={mockLoginFailure} />)
+        const wrapper = shallow(<LoginForm login={mockLoginFailure} />)
 
         //simulate click
         await wrapper.find('button').simulate('click', mockEvent)
 
         expect(wrapper.state('error')).toBe(true)
+        expect(wrapper.find('button').text()).toBe("Login FAILED, Try Again!")
     })
 })
